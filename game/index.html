@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kestrel Ridge — Alpine Flight Simulator</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="viewport">
+    <canvas id="gl-canvas"></canvas>
+    <canvas id="hud-canvas"></canvas>
+
+    <!-- Title / Mission Briefing Overlay -->
+    <div id="menu-overlay" class="overlay visible">
+      <div class="briefing-shell">
+        <header class="briefing-header">
+          <div class="badge-row">
+            <span class="callsign-badge">KR-7 KESTREL</span>
+            <span class="sector-badge">SOLSTICE ARCHIPELAGO · RWY 09/27</span>
+          </div>
+          <h1>KESTREL RIDGE</h1>
+          <p class="subtitle">Coastal &amp; alpine flight sorties with real lift, fuel burn, wind shear, and runway landings.</p>
+        </header>
+
+        <section class="mission-grid" id="mission-grid"></section>
+
+        <footer class="briefing-footer">
+          <div class="controls-strip">
+            <span><kbd>W/S</kbd> or <kbd>↑/↓</kbd> Pitch</span>
+            <span><kbd>A/D</kbd> or <kbd>←/→</kbd> Roll</span>
+            <span><kbd>Q/E</kbd> Yaw</span>
+            <span><kbd>Shift/Ctrl</kbd> or <kbd>1–5</kbd> Throttle</span>
+            <span><kbd>Space</kbd> Afterburner</span>
+            <span><kbd>[/]</kbd> or <kbd>T</kbd> Trim</span>
+            <span><kbd>G</kbd> Gear</span>
+            <span><kbd>F</kbd> Flaps</span>
+            <span><kbd>B</kbd> Airbrake</span>
+            <span><kbd>C</kbd> Chase / Cockpit</span>
+            <span><kbd>M</kbd> Mouse Yoke</span>
+          </div>
+          <div class="action-row">
+            <button id="btn-launch" class="primary-btn">LAUNCH SORTIE</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Debrief / Crash / Landing Result Overlay -->
+    <div id="debrief-overlay" class="overlay">
+      <div class="debrief-card">
+        <div class="debrief-banner" id="debrief-banner">SORTIE COMPLETE</div>
+        <h2 id="debrief-title">BUTTER LANDING</h2>
+        <p id="debrief-subtitle">Clean touchdown on Runway 09 with fuel in reserve.</p>
+        <div class="debrief-stats" id="debrief-stats"></div>
+        <div class="debrief-actions">
+          <button id="btn-retry" class="primary-btn">FLY AGAIN</button>
+          <button id="btn-next" class="secondary-btn">NEXT SORTIE</button>
+          <button id="btn-menu" class="ghost-btn">MISSION SELECT</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pause Overlay -->
+    <div id="pause-overlay" class="overlay">
+      <div class="pause-card">
+        <h2>FLIGHT PAUSED</h2>
+        <p>Press <kbd>Esc</kbd> or <kbd>P</kbd> to resume.</p>
+        <div class="debrief-actions">
+          <button id="btn-resume" class="primary-btn">RESUME</button>
+          <button id="btn-restart-pause" class="secondary-btn">RESTART</button>
+          <button id="btn-menu-pause" class="ghost-btn">MISSIONS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
